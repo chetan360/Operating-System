@@ -2,7 +2,7 @@
 
 int LRU(int time[], int fsize) {
     int min = time[0], pos = 0;
-    for(int i=0; i<fsize; i++) {
+    for(int i=1; i<fsize; i++) {
         if(time[i] < min) {
             min = time[i];
             pos = i;
@@ -15,7 +15,7 @@ int main() {
     int rs[100], time[20], frame[20];
     int n, flag1, flag2, pf = 0, hit = 0, fsize;
 
-    printf("Enter no. of pages : ");
+    printf("How many pages : ");
     scanf("%d", &n);
 
     printf("Enter reference string : ");
