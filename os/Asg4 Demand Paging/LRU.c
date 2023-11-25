@@ -56,7 +56,7 @@ int main() {
         }
         
         if(flag2 == 0) {
-            //LRU finds min timestamp frame pos
+            //find least resently used position using min timestamp
             int pos = LRU(time, fsize);
             frame[pos] = rs[i];
             time[pos] = i+1;
