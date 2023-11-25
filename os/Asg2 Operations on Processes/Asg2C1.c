@@ -10,48 +10,59 @@
 void typeline(char *s, char *fn) {
 	int handle, i=0, cnt=0, n;
 	char ch;
-	
+
+	//open the file 
 	if((handle = open(fn, O_RDONLY)) == -1) {
 		printf("File %s not found\n", fn);
 		return;
 	}
 	
 	if(strcmp(s, "a") == 0) {
+		//printing till end of file is not occurred 
 		while(read(handle, &ch, 1) != 0) {
 			printf("%c", ch);
 		}
 		printf("\n");
+		//close file
 		close(handle);
 		return;
 	}
 	
 	n = atoi(s);
 	if(n > 0) {
+		//1. print from frist line and count
+		//   no. of lines in i
 		while(read(handle, &ch, 1) != 0) {
 			if(ch == '\n') {
 				i++;
 			}
-			
+			//2. i becomes n the stop printing
 			if(i == n) {
 				break;
 			}
 			printf("%c", ch);
 		}
 		printf("\n\n");
-		
+
+		//close file
 		close(handle);
 		return;
 	}
 	
 	if(n < 0) {
+		//1. count no. of lines
 		while(read(handle, &ch, 1) != 0) {
 			if(ch == '\n') {
 				cnt++;
 			}
 		}
-		
+
+		//file read location is reached to end line
+		//so seek at first line
 		lseek(handle, 0, SEEK_SET);
-		
+
+		//2. seeking file read location to 
+		//   no. of lines + (-n) 
 		while(read(handle, &ch, 1) != 0) {
 			if(ch == '\n') {
 				i++;
@@ -60,11 +71,14 @@ void typeline(char *s, char *fn) {
 				break;
 			}
 		}
-		
+
+		//3. printing from that last -n lines
 		while(read(handle, &ch, 1) != 0) {
 			printf("%c", ch);
 		}
 		printf("\n");
+
+		//close file
 		close(handle);
 		return;		
 	}
@@ -89,6 +103,8 @@ int main() {
 			} else {
 				printf("%s is not valid cmd.\n", t1);
 			}
+		} else {
+			printf("please enter (typeline n/-n/a filename) cmd in this format.\n");
 		}
 	}
 	
