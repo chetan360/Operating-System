@@ -41,7 +41,7 @@ int main() {
         }
 
         if(flag2 == 0) {
-            //finds
+            //inserting page in frames in sequential manner
             frame[rr] = rs[i];
             rr = (rr+1) % fsize; //circular queue indexing for frame arr
             pf++;
