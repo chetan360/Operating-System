@@ -1,16 +1,5 @@
 #include <stdio.h>
 
-int MRU(int time[], int fsize) {
-    int max = time[0], pos = 0;
-    for(int i=0; i<fsize; i++) {
-        if(time[i] > max) {
-            max = time[i];
-            pos = i;
-        }
-    }
-    return pos;
-}
-
 int main() {
     int rs[100], frame[20];
     int n, flag1, flag2, pf = 0, hit = 0, rr = 0, fsize;
@@ -52,7 +41,7 @@ int main() {
         }
 
         if(flag2 == 0) {
-            //MRU finds min timestamp frame pos
+            //finds
             frame[rr] = rs[i];
             rr = (rr+1) % fsize; //circular queue indexing for frame arr
             pf++;
