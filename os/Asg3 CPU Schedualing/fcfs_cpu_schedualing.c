@@ -20,12 +20,11 @@ int main() {
     float avgWt;
     int totalTat = 0;
     int totalWt = 0;
-    int idx;
 
     printf("Enter no. of process : ");
     scanf("%d", &n);
 
-    printf("Enter arival time and burst time of %d processes :\n", n);
+    printf("Enter arrival time and burst time of %d processes :\n", n);
     for(int i=0; i<n; i++) {
         printf("AT : ");
         scanf("%d", &p[i].at);
@@ -41,6 +40,10 @@ int main() {
     printf("P%d | ", p[0].pid);
     p[0].ct = p[0].bt;
     p[0].tat = p[0].ct - p[0].at;
+    p[0].wt = p[0].tat - p[0].bt;
+    totalTat += p[0].tat;
+    totalWt += p[0].wt;
+
     for(int i=1; i<n; i++) {
         printf("P%d | ", p[i].pid);
         if(p[i].at < p[i-1].ct) {
@@ -69,3 +72,34 @@ int main() {
 
     return 0;
 }
+
+/*
+
+Enter no. of process : 4
+Enter arrival time and burst time of 4 processes :
+AT : 0
+BT : 2
+
+AT : 1
+BT : 2
+
+AT : 5
+BT : 3
+
+AT : 6
+BT : 4
+
+Gantt Chart :
+P1 | P2 | P3 | P4 | 
+
+PID     AT      BT      CT      TAT     WT
+
+1       0       2       2       2       0
+2       1       2       4       3       1
+3       5       3       8       3       0
+4       6       4       12      6       2
+
+Avg. TAT = 3.50
+Avg. WT = 0.75
+
+*/
