@@ -86,3 +86,34 @@ int main() {
 
     return 0;
 }
+
+/*
+
+Enter no. of process : 4
+Enter arival time and burst time of 4 processes :
+AT : 1
+BT : 3
+
+AT : 2
+BT : 4
+
+AT : 1
+BT : 2
+
+AT : 4
+BT : 4
+
+Gantt Chart :
+P3 | P1 | P2 | P4 | 
+
+PID     AT      BT      CT      TAT     WT
+
+1       1       3       6       5       2
+2       2       4       10      8       4
+3       1       2       3       2       0
+4       4       4       14      10      6
+
+Avg. TAT = 6.25
+Avg. WT = 3.00
+
+*/
