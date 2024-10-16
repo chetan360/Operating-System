@@ -121,3 +121,35 @@ int main() {
 
     return 0;
 }
+
+/*
+
+Enter no. of process : 4
+Enter time quantum : 2
+Enter arival time and burst time of 4 processes :
+AT : 0
+BT : 5
+
+AT : 1
+BT : 4
+
+AT : 2
+BT : 2
+
+AT : 4
+BT : 1
+
+Gantt Chart :
+P1 | P2 | P3 | P1 | P4 | P2 | P1 | 
+
+PID     AT      BT      CT      TAT     WT
+
+1       0       5       12      12      7
+2       1       4       11      10      6
+3       2       2       6       4       2
+4       4       1       9       5       4
+
+Avg. TAT = 7.75
+Avg. WT = 4.75
+
+*/
