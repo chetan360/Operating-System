@@ -93,3 +93,38 @@ int main() {
 
     return 0;
 }
+
+/*
+
+Enter no. of process : 4
+Enter priority, arival time and burst time of 4 processes :
+Prio : 10
+AT : 0
+BT : 5
+
+Prio : 20
+AT : 1
+BT : 4
+
+Prio : 30
+AT : 2
+BT : 2
+
+Prio : 40
+AT : 4
+BT : 1
+
+Gantt Chart :
+P1 | P2 | P3 | P3 | P4 | P2 | P2 | P2 | P1 | P1 | P1 | P1 | 
+
+PRIO    PID     AT      BT      CT      TAT     WT
+
+ 10     1       0       5       12      12      7
+ 20     2       1       4       8       7       3
+ 30     3       2       2       4       2       0
+ 40     4       4       1       5       1       0
+
+Avg. TAT = 5.50
+Avg. WT = 2.50
+
+*/
